@@ -14,7 +14,7 @@ class BirthdayForm(forms.ModelForm):
         first_name = self.cleaned_data['first_name']
         last_name = self.cleaned_data['last_name']
         if f'{first_name} {last_name}' in BEATLES:
-            # Отправляем письмо, если кто-то представляется 
+            # Отправляем письмо, если кто-то представляется
             # именем одного из участников Beatles.
             send_mail(
                 subject='Another Beatles member',
@@ -26,7 +26,7 @@ class BirthdayForm(forms.ModelForm):
             raise ValidationError(
                 'Мы тоже любим Битлз, но введите, пожалуйста, настоящее имя!'
             )
-    # Все настройки задаём в подклассе Meta.
+
     class Meta:
         # Указываем модель, на основе которой должна строиться форма.
         model = Birthday
@@ -34,5 +34,4 @@ class BirthdayForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'birthday', 'image')
         widgets = {
             'birthday': forms.DateInput(attrs={'type': 'date'})
-        } 
-        
+        }
