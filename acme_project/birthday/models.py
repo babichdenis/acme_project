@@ -10,12 +10,12 @@ class Birthday(models.Model):
     )
     birthday = models.DateField('Дата рождения', validators=(real_age,))
     image = models.ImageField('Фото', upload_to='birthdays_images', blank=True)
-    
+
     class Meta:
         verbose_name = 'День рождения'
         verbose_name_plural = 'Дни рождения'
         ordering = ('birthday',)
-        
+
     def get_absolute_url(self):
-            # С помощью функции reverse() возвращаем URL объекта.
-            return reverse('birthday:detail', kwargs={'pk': self.pk}),
+        # С помощью функции reverse() возвращаем URL объекта.
+        return reverse('birthday:detail', kwargs={'pk': self.pk})
