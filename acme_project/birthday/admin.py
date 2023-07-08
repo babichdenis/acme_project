@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Birthday
+from .models import Birthday, Tag
 
 admin.site.empty_value_display = "Не задано"
 
@@ -15,4 +15,11 @@ class PostAdmin(admin.ModelAdmin):
         'first_name',
         'last_name',
         'birthday'
+    )
+
+
+@admin.register(Tag)
+class PostTag(admin.ModelAdmin):
+    list_display = (
+        'tag',
     )
